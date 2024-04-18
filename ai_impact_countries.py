@@ -67,9 +67,21 @@ plt.show()
 plt.figure(figsize=(10, 6))
 for i, point in ai_index_df.iterrows():
     plt.scatter(point['Government Strategy'], point['Total score'])
-    plt.text(point['Government Strategy'], point['Total score'], i)
-
+    plt.text(point['Government Strategy'], point['Total score'], i)     
 plt.xlabel('Government Strategy Score')
 plt.ylabel('Total AI Score')
 plt.title('Correlation between Government Strategy and Total AI Score')
+plt.show()
+
+
+# Calculate the mean AI impact for each category
+ai_index_df = pd.read_csv('ai_index_data.csv', index_col=0)
+categories = ['Talent', 'Infrastructure', 'Operating Environment', 'Research', 'Development', 'Government Strategy', 'Commercial']
+mean_ai_impact_by_category = ai_index_df[categories].mean()
+
+plt.figure(figsize=(10, 6)) 
+mean_ai_impact_by_category.plot(kind='bar')
+plt.xlabel('Category')
+plt.ylabel('Mean AI Impact')
+plt.title('Mean AI Impact by Category')
 plt.show()
