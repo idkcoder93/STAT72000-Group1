@@ -64,7 +64,7 @@ plt.title('Density Plot of AI Impact')
 # Show the plot
 plt.show()
 
-# graph that shows the domain and their AI score
+# grouping the domain and their AI score
 grouped_data = df.groupby("Domain")["AI Impact"].mean().head(30)
 
 # Extracting data
@@ -73,6 +73,7 @@ first_30_AI = grouped_data.values
 
 # Plotting
 plt.plot(first_30_domain, first_30_AI)
+plt.title('Average AI Impact on Domains')
 plt.xlabel('Domain')
 plt.xticks(rotation=90)
 plt.ylabel('Average AI Score')
